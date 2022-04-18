@@ -1,6 +1,10 @@
 # MySQL
 
+MySQL ist ein weilteit verbreitetes, relationales DBMS. Es ist als Open-Source- sowie als kommerzielle Enterpriseversion verfügbar.
+
 ## Installation
+
+
 
 ## Konfiguration
 
