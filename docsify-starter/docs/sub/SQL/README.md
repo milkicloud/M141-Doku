@@ -27,7 +27,18 @@ CREATE TABLE guest(
   birthdate date,
   adress text,
   PRIMAREY KEY(id)
-)
+);
+```
+
+DML:
+```sql
+ALTER TABLE guest
+DROP COLUMN adress;
+```
+
+SSQL:
+```sql
+SELECT * FROM guest;
 ```
 
 
