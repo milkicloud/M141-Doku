@@ -16,26 +16,17 @@ Wird eine Befehlsfolge auf dem System ausgeführt, wird gewährleistet, dass kei
 
 ### Durability
 
-Nach einer Befehlsfolge werden alle Daten dauerhaft auf der FEstplatte gespeichert.
+Nach einer Befehlsfolge werden alle Daten dauerhaft auf der Festplatte gespeichert.
 
 ## BASE
 
 Häufig in NoSQL Datenbanken. Ein humoristischer Gegensatz zu ACID.
 Man hält sich nicht an die Transaktionssicherheit, hat dafür aber zum Beispiel eine bessere Skalierbarkeit.
-
-### Basically Available
-
-
-
-### Soft State
-
-
-
-### Eventually Consistent
-
-
+BASE steht für Basically Available Soft State Eventually Consistent
 
 ## CAP-Theorem
+
+Das CAP-Theorem ist das magische Dreieck der Datenbankmanagementsysteme. Steigt die Partition tolerance sinkt die Consistency usw.
 
 ### Consistency
 
