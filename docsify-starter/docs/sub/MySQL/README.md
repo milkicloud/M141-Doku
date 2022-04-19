@@ -4,7 +4,28 @@ MySQL ist ein weilteit verbreitetes, relationales DBMS. Es ist als Open-Source- 
 
 ## Installation
 
+Für jede Linux-Version gibt es dazugehörige Software-Versionen.
 
+### Step by Step
+
+Als erstes muss der Paketindex von apt aktualisiert werden.
+```bash
+sudo apt update
+```
+Danach kann das Paket mysql-server installiert werden.
+```bash
+sudo apt install mysql-server
+```
+Da der neu installierte MySQL-Server noch einige Beispieldaten und praktisch keine Sicherheitseinstellungen hat, wird ein Sicherheitsskript ausgeführt, welches von der MySQL-Installation mitgeliefert wird.
+```bash
+sudo mysql_secure_installation
+```
+Das Sicherheitsskript führt durch einige Grundlegende Einstellungen:
+- Festlegen einer Passwortrichtliene für DB-Benutzer
+- Festlegen eines Root-Passworts
+- automatisches Entfernen der Beispieldaten
+
+### Testing der Installation
 
 ## Konfiguration
 
