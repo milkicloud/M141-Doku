@@ -27,43 +27,52 @@ Das Sicherheitsskript führt durch einige Grundlegende Einstellungen:
 
 ### Testing der Installation
 
-Status des Diensts:
+<!-- tabs:start -->
+
+#### **Status des Diensts:**
 ```bash
 sudo systemctl status mysql
 ```
 out:
+![systemctl](imgs/systemctl.png)
 
-Verbindungstest:
+#### **Verbindungstest:**
 ```bash
 sudo mysql -u root -p
 ```
 out:
+![login](imgs/login.png)
 
-Anzeigen der Datenbanken:
+#### **Anzeigen der Datenbanken**
 ```mysql
 SHOW DATABASES;
 ```
 out:
+![showdbs](imgs/showdb.png)
 
-Anzeigen der User:
+#### **Anzeigen der User**
 ```mysql
 SELECT user, authentication_string, host FROM mysql.user;
 ```
 out:
+![showusers](imgs/showusers.png)
 
-MySQL-Version aus der Datenbank lesen:
+#### **MySQL-Version**
 ```mysql
 SELECT version();
 ```
 out:
+![version](imgs/version.png)
 
-Erstellen und Löschen einer Datenbank:
+#### **Erstellen und Löschen einer Datenbank**
 ```mysql
 CREATE DATABASE test;
 DROP DATABASE test;
 ```
 out:
+![create/delete](imgs/db.png)
 
+<!-- tabs:end -->
 
 ## Konfiguration
 
@@ -91,7 +100,7 @@ Berechtigungen ansehen:
 SHOW GRANTS FOR 'myusername'@'localhost';
 ```
 
-## Storage Engines ( oder Database Engine)
+## Storage Engines (oder Database Engine)
 
 Die Storage Engine eines RDBMS ist für die korrekte Ausführung der SQL-Befehle zuständig.
 Sie kümmert sich um die CRUD Funktionen sowie die allgemeine Datenbank-Performance.

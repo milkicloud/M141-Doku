@@ -1,4 +1,6 @@
 * [Home](/)
 
-    * [SQL](sub/SQL)
-    * [Transactions](sub/Transaction)
+    * [SQL](sub/SQL/README.md)
+    * [Transactions](sub/Transaction/README.md)
+    * [MySQL](sub/MySQL/README.md)
+    * [Redis](sub/Redis/README.md)
