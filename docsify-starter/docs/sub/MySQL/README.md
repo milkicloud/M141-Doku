@@ -27,6 +27,44 @@ Das Sicherheitsskript führt durch einige Grundlegende Einstellungen:
 
 ### Testing der Installation
 
+Status des Diensts:
+```bash
+sudo systemctl status mysql
+```
+out:
+
+Verbindungstest:
+```bash
+sudo mysql -u root -p
+```
+out:
+
+Anzeigen der Datenbanken:
+```mysql
+SHOW DATABASES;
+```
+out:
+
+Anzeigen der User:
+```mysql
+SELECT user, authentication_string, host FROM mysql.user;
+```
+out:
+
+MySQL-Version aus der Datenbank lesen:
+```mysql
+SELECT version();
+```
+out:
+
+Erstellen und Löschen einer Datenbank:
+```mysql
+CREATE DATABASE test;
+DROP DATABASE test;
+```
+out:
+
+
 ## Konfiguration
 
 ### Datenbank-User erstellen und berechtigen
