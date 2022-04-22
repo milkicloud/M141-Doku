@@ -36,7 +36,7 @@ ALTER TABLE guest
 DROP COLUMN adress;
 ```
 
-SSQL:
+SQL:
 ```sql
 SELECT * FROM guest;
 ```
