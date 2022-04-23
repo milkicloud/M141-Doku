@@ -186,7 +186,24 @@ mysqldump DB_Name Table_Name
 
 ### Import CSV
 
-
+Um eine CSV-Datei wieder zu importieren kann man wieder SQL nutzen:
+```mysql
+LOAD DATA INFILE '/tmp/export.csv'
+INTO TABLE table1
+FIELD TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS -- falls die Spalten-Header exportiert wurden, die 1. Zeile ignorieren                                     
+```
+                                             
+...oder die MySQL-Utility "mysqlimport"
+```bash
+mysqlimport
+--ignore-lines=1 \ # um allfälliger Header zu ignorieren
+--fields-terminated-by=; \
+--local -u root -p DB_name # Verbindung zur Datenbank
+/tmp/export.csv # zu importierendes File
+```
 
 ## NoSQL
 
