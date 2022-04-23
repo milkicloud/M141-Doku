@@ -116,6 +116,54 @@ CREATE FULLTEXT INDEX index_paragraph
 ON mytable (description);
 ```
 
+### Export Dump
+  
+Ein SQL-Dump erstellt ein SQL-Skript aus einer bestehenden Datenbank.
+Das Skript ist ein genaues Abbild der Datenbank zum Zeitpunkt des Dumps.
+Unter MySQL kann dafür der Befehl "mysqldump" genutzt werden.
+
+Syntax:  
+```bash
+mysqldump [options] [DB_Name] [Table_Name, Table2_Name, ...] > File_Name.sql
+```
+  
+Beispiele:
+  
+Es soll eine bestimmte Tabelle exportiert werden:
+```bash
+mysqldump mydb table1 > dump.sql
+```
+  
+Es sollen bestimmte Datenbanken exportiert werden:
+```bash
+mysqldump --databases mydb, hisdb > dump.sql
+```
+  
+Es sollen alle Datenbanken exportiert werden:
+```bash
+mysqldump --all-databases > dump.sql
+```
+  
+### Import Dump
+  
+Um einen SQL-Script mit MySQL einzulesen wird der Befehl "mysql" verwendet.
+Ein SQL-Dump kann so als Skript-File eingelesen werden.
+ 
+Es sollen bestimmte Datenbanken exportiert werden:
+```bash
+mysql -u root -pPASSWORT [DB_Name] < dump.sql
+```
+ 
+### Export CSV
+  
+Beim Export in eine CSV-Datei wird das Ergebnis einer SELECT-Query in eine CSV-Datei geschrieben.
+                                             
+
+
+### Import CSV
+
+
+
 ## NoSQL
 
 
