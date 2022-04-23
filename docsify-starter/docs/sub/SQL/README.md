@@ -158,7 +158,7 @@ mysql -u root -pPASSWORT [DB_Name] < dump.sql
 ### Export CSV
   
 Beim Export in eine CSV-Datei wird das Ergebnis einer SELECT-Query in eine CSV-Datei geschrieben.
-            
+Das kann direkt mit SQL gemacht werden:            
 ```mysql
 SELECT * FROM table1 WHERE age = 20 -- irgendeine SELECT-Query
 INTO OUTFILE '/tmp/export.csv' -- Pfad der Ausgabe
@@ -166,6 +166,23 @@ FIELDS ENCLOSED BY '"' -- Felder werden mit "" eingefasst
 TERMINATED BY ';' -- Felder werden mit ; abgeschlossen
 LINES TERMINATED BY '\n' -- Zeilenumbruch nach jedem Eintrag                                           
 ```
+
+...oder auch mit mysqldump,
+für eine ganze Datenbank:                                             
+```bash
+mysqldump DB_Name
+--fields-terminated-by ';' \
+--fields-enclosed-by '"' \
+--tab /tmp/export/
+```                                             
+   
+eine einzelne Tabelle:     
+```bash
+mysqldump DB_Name Table_Name
+--fields-terminated-by ';' \
+--fields-enclosed-by '"' \
+--tab /tmp/export/
+```                                         
 
 ### Import CSV
 
