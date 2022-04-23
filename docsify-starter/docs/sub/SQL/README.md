@@ -291,8 +291,8 @@ mysqldump --single-transaction -u user -p dbname -h 192.168.1.1 \
 Es ist auch möglich eine Migration über eine SSH-Verbindung durchzuführen.
 Auch dabei wird eine Pipe verwendet um den Dump direkt zu importieren.
 ```bash
-ssh user@SERVER1 'mysqldump --single-transaction -u root -pPASS DBNAME' 
-    | ssh user@SERVER2 'mysql -u USER -pPASS NEWDB'
+ssh user@SERVER1 'mysqldump --single-transaction -u root -p DB_NAME' 
+    | ssh user@SERVER2 'mysql -u USER -p NEW_DB'
 ```
                     
 ## NoSQL
