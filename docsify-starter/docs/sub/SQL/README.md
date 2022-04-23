@@ -36,6 +36,7 @@ ALTER TABLE guest
 DROP COLUMN adress;
 ```
 
+
 SQL:
 ```sql
 SELECT * FROM guest;
@@ -157,8 +158,14 @@ mysql -u root -pPASSWORT [DB_Name] < dump.sql
 ### Export CSV
   
 Beim Export in eine CSV-Datei wird das Ergebnis einer SELECT-Query in eine CSV-Datei geschrieben.
-                                             
-
+            
+```mysql
+SELECT * FROM table1 WHERE age = 20 -- irgendeine SELECT-Query
+INTO OUTFILE '/tmp/export.csv' -- Pfad der Ausgabe
+FIELDS ENCLOSED BY '"' -- Felder werden mit "" eingefasst
+TERMINATED BY ';' -- Felder werden mit ; abgeschlossen
+LINES TERMINATED BY '\n' -- Zeilenumbruch nach jedem Eintrag                                           
+```
 
 ### Import CSV
 
