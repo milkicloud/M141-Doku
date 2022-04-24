@@ -50,7 +50,7 @@ Da dies die Performanz der Datenbank einschränk, gibt es Isolationsoptionen.
 
 | Isolationsebene  | Dirty Read | Lost Updates | Non-Repeatable Query | Phantom Query |
 | ---------------- | ---------- | ------------ | -------------------- | ------------- |
-| Read Uncommitted | mölich     | möglich      | möglich              | möglich       |
+| Read Uncommitted | möglich    | möglich      | möglich              | möglich       |
 | Read Committed   | unmöglich  | möglich      | möglich              | möglich       |
 | Repeatable Read  | unmöglich  | unmöglich    | unmöglich            | möglich       |
 | Serializable     | unmöglich  | unmöglich    | unmöglich            | unmöglich     |

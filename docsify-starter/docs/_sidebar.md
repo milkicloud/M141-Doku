@@ -9,3 +9,4 @@
     * [MySQL](sub/MySQL/README.md)
     * [Redis](sub/Redis/README.md)
     * [MongoDB](sub/MongoDB/README.md)
+    * [Etherpad](sub/Etherpad/README.md)
