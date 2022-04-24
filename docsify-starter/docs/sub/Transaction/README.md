@@ -27,6 +27,8 @@ BASE steht für Basically Available Soft State Eventually Consistent
 ## CAP-Theorem
 
 Das CAP-Theorem ist das magische Dreieck der Datenbankmanagementsysteme. Steigt die Partition tolerance sinkt die Consistency usw.
+Es ist grundsätzlich ummöglich alle drei Themen des CAP-Theorems zu 100% zu erfüllen.
+Hat man eine hohe Availability und eine gute Partition tolerance, dann wird die Consistency entsprechend schwach sein.
 
 ### Consistency
 
