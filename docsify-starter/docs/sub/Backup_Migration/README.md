@@ -1,3 +1,5 @@
+# MySQL
+
 ## Backup
 
 Im Falle eines Angriffes oder eines Fehlers ist es wichtig eine Sicherheitskopie seiner Datenbank zu haben.
@@ -86,4 +88,23 @@ Auch dabei wird eine Pipe verwendet um den Dump direkt zu importieren.
 ```bash
 ssh user@SERVER1 'mysqldump --single-transaction -u root -p DB_NAME' 
     | ssh user@SERVER2 'mysql -u USER -p NEW_DB'
+```
+
+
+# MongoDB
+
+## Backup
+
+Mit dem Integrierten Programm "mongodump" kann ein Backup in Form von binären Daten erstellt werden. Das Backup erstellt Exportdateien im BSON-Format für die Datensätze und im JSON-Format für die Metadaten.
+
+```bash
+mongodump --host=mongodb1.example.net --port=27017 --username=user --authenticationDatabase=admin --out=opt/backup/dump-2022-05-04
+```
+
+## Import
+
+Um ein Backup wieder zu importieren kann "mongorestore" verwendet werden. 
+
+```bash
+mongorestore --uri="mongodb://user@mongodb1.example.net:27017/?authSource=admin" opt/backup/dump-2022-05-04
 ```

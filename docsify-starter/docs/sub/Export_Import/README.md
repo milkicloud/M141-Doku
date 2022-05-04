@@ -1,3 +1,5 @@
+# MySQL
+
 ## Export Dump
   
 Ein SQL-Dump erstellt ein SQL-Skript aus einer bestehenden Datenbank.
@@ -85,4 +87,62 @@ mysqlimport
 --local -u root -p DB_name # Verbindung zur Datenbank
 /tmp/export.csv # zu importierendes File
 ```
- 
+
+# MongoDB
+
+## Export JSON
+
+Das integrierte Tool "mongoexport" ermöglicht den Export von MongoDB-Daten in JSON- oder CSV-Dateien.
+Für den Export in ein JSON-File muss der Connection-String, in welchem auch der Name der Datenbank vorhanden sein sollte, die Collection und die Ausgabedatei angegeben werden.
+```bash
+mongoexport --uri="mongodb://mongodb0.example.com:27017/reporting"  --collection=events  --out=events.json [additional options]
+```
+
+Mit dem Parameter "-q" kann eine Query für den Export mitgegeben werden.
+```bash
+mongoexport --collection=events --db=reporting -q='{ "a": { "$gte": 3 }, "date": { "$lt": { "$date": "2016-01-01T00:00:00.000Z" } } }' --out=myRecords.json
+```
+
+## Export CSV
+
+Für einen Export in eine CSV-Datei muss zusätzlich der Parameter "--type=csv" angegeben werden. Ansonsten ist es das selbe, wie beim Export in eine JSON-Datei.
+
+## Import JSON
+
+Mit dem integrierten Programm "mongoimport" können JSON-Files in eine Datenbank importiert werden. Dazu wird die Angabe eines Connection-Strings, einer Datenbank, einer Collection und eines Files, welches die zu importierenden Daten beinhaltet, benötigt.
+```bash
+mongoimport --uri="mongodb://mongodb0.example.com:27017/reporting"  --db=users --collection=contacts --file=contacts.json
+```
+
+Falls bereits Daten in der angegebenen Collection bestehen, möchte man definieren, was mit duplikaten (Einträge mit selber _id) passiert.
+
+soll ein bereits existierendes Document mit selber _id...
+...ersetzt werden:
+```bash
+--mode=upsert
+```
+
+...gemergt werden:
+```bash
+--mode=merge
+```
+
+...gelöscht werden:
+```bash
+--mode=delete
+```
+
+## Import CSV
+
+Soll eine CSV-Datei importiert werden, muss dem Befehl durch den Parameter "--type" mitgeteilt werden, dass es sich um eine CSV-Datei handelt. Ausserdem sollte der Parameter "--headerline" gesetzt werden, da man die Kopfzeile nicht als Eintrag speichern will.
+```bash
+mongoimport --uri="mongodb://mongodb0.example.com:27017/reporting" --db=users --collection=contacts --type=csv --headerline --file=/opt/backups/contacts.csv
+```
+
+Es können auch Types für die jeweiligen Felder mitgegeben werden:
+```bash
+mongoimport --db=users --collection=contacts --type=csv \
+   --columnsHaveTypes \
+   --fields="name.string(),birthdate.date(2006-01-02),contacted.boolean(),followerCount.int32(),thumbnail.binary(base64)" \ # Hier werden jetzt die einzelnen Spalten speziell behandelt
+   --file=/example/file.csv
+```
