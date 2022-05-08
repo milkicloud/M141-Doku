@@ -32,7 +32,7 @@ gut für unstrukturierte Daten
     sudo apt install gnupg
     ```
    1. Lizenz-Key importieren
-   ```bash
+   ```bash role
     wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
     ```
 2. Update-Sourcen erfassen
@@ -43,3 +43,29 @@ gut für unstrukturierte Daten
     ![update-sourcen](imgs/updatesourcen-list.png)
 3. Sourcen updaten
 4. MongoDB installieren
+
+
+## Authentifizierung
+
+Benutzer erfassen:
+```mongo
+use admin
+db.createUser({
+    user: "mongoAdmin",
+    pwd: passwordPrompt(),
+    roles:[
+        { role: "userAdminAnyDatabase", db: "admin"}
+        { role: "readWriteAnyDatabase", db: "admin"}
+    ]
+})
+```
+
+Rollen erfassen
+```mongo
+db.createRole({
+    role: "roleName",
+    privileges: [
+        { resource: cluster: {}}
+    ]
+})
+```

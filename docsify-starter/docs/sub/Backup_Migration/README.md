@@ -101,7 +101,7 @@ Mit dem Integrierten Programm "mongodump" kann ein Backup in Form von binären D
 mongodump --host=mongodb1.example.net --port=27017 --username=user --authenticationDatabase=admin --out=opt/backup/dump-2022-05-04
 ```
 
-## Import
+## Restore
 
 Um ein Backup wieder zu importieren kann "mongorestore" verwendet werden. 
 
