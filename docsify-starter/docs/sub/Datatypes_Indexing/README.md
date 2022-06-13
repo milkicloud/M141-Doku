@@ -63,6 +63,8 @@ Typen:
 - Index -> auch doppelte Werte sind erlaubt
 - Fulltext -> in längeren Strings werden alle Wörter indiziert
 
+### MySQL
+
 MySQL Syntax: 
 <Operation> [UNIQUE | FULLTEXT] INDEX <Index-Name>
 ON <Tabellen-Name> (<Spalte>, <Spalte2>, ...)
@@ -73,4 +75,12 @@ CREATE FULLTEXT INDEX index_paragraph
 ON mytable (description);
 ```
 
+### Mongo
+
+```mongo
+db.collection.createIndex(
+    { display : 1 },
+    { unique : true, dropDups : true } // unique, duplikate werden gelöscht
+)
+```
 

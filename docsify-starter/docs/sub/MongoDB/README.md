@@ -48,7 +48,7 @@ gut für unstrukturierte Daten
 ## Authentifizierung
 
 Benutzer erfassen:
-```mongo
+```js
 use admin
 db.createUser({
     user: "mongoAdmin",
@@ -61,11 +61,39 @@ db.createUser({
 ```
 
 Rollen erfassen
-```mongo
+```js
 db.createRole({
     role: "roleName",
     privileges: [
         { resource: cluster: {}}
     ]
 })
+```
+
+## Funktionen
+
+Die MongoDB-Shell interpretiert JavaScript, weshalb es möglich ist, variablen und Funktionen zu definieren.
+Im Grunde wäre eine Funktion in MongoDB dasselbe, wie eine Stored Procedure in MySQL.
+
+Diese Funktion erstellt Testdaten in einer "phones" Collection.
+```js
+populatePhones = function(area, start, stop) {
+  for(var i = start; i < stop; i++) {
+    var country = 1 + ((Math.random() * 8) << 0);
+    var num = (country * 1e10) + (area * 1e7) + i;
+    var fullNumber = "+" + country + " " + area + "-" + i;
+    db.phones.insert({
+      _id: num,
+      components: {
+        country: country,
+        area: area,
+        prefix: (i * 1e-4) << 0,
+        number: i
+      },
+      display: fullNumber
+    });
+    print("Inserted number " + fullNumber);
+  }
+  print("Done!");
+}
 ```
