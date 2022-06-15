@@ -30,7 +30,7 @@ mysqldump --all-databases > dump.sql
   
 ## Import Dump
   
-Um einen SQL-Script mit MySQL einzulesen wird der Befehl "mysql" verwendet.
+Um ein SQL-Script mit MySQL einzulesen wird der Befehl "mysql" verwendet.
 Ein SQL-Dump kann so als Skript-File eingelesen werden.
  
 Es sollen bestimmte Datenbanken exportiert werden:
