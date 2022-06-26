@@ -79,7 +79,7 @@ ON mytable (description);
 
 ```mongo
 db.collection.createIndex(
-    { display : 1 },
+    { "fieldName" : 1, "field2Name" : 1 },
     { unique : true, dropDups : true } // unique, duplikate werden gelöscht
 )
 ```
