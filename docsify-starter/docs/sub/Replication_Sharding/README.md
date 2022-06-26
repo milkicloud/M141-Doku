@@ -4,6 +4,8 @@ Ein Replication-Cluster besteht aus mehreren Nodes, welche sich unter einander a
 
 Ein Sharding-Cluster teilt die gesamte Datenbank auf mehrere Nodes auf.
 
+Beide Methoden ergeben ein Load-Balancing. Ob sich ein Sharding- oder ein Replication-Cluster mehr lohnt ist abhängig vom Aufbau der 
+
 ## Mongo
 
 Als erstes werden zwei Mongo-Instanzen mit dem Parameter replSet gestartet.
@@ -29,3 +31,9 @@ rs.initiate({
 
 Ein Connectionstring auf das Replication-Cluster würde wie folgt aussehen:
 "mongodb://localhost:27011,localhost:27012/replicaSet=book"
+
+## MySQL
+
+
+
+
